@@ -31,12 +31,12 @@ import {signOut} from 'firebase/auth'
 <template>
 <div class="bg-white" >
 
-  <div class="drawer">
+  <div class="drawer ">
     <input id="my-drawer" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
       <!-- Page content here -->
 
-      <div class="container h-screen w-auto">
+      <div class=" h-screen w-screen">
 
         <div v-if="!isLoggedIn">
           <template v-if="showLogin" >
@@ -51,6 +51,7 @@ import {signOut} from 'firebase/auth'
         </div>
 
         <div v-else class="bg-white ">
+
           <!--
          <p class="text-black px-4 ">Bienvenue {{displayName}} <span> <button class="btn btn-primary mx-4"  @click="logOut" >Deconnecter</button></span></p>
     -->

@@ -18,18 +18,15 @@ export default {
 
 <template>
 
-<div class="container flex flex-col items-center bg-white h-screen px-8 py-[10%]" >
+<div class="flex flex-col items-center h-screen px-[10%]  py-[10%]" >
 
   <p v-if="displayName" class="text-black bg-primary px-4 py-4 mb-[10%] rounded shadow-2xl font-bold"  >  {{displayName}} </p>
 
-  <div class="card w-[70%] sm:w-[30%] rounded-2xl shadow-2xl " >
-  <img src="/images/logo.png" class="rounded-2xl" alt="logo-aaron-travel" >
-</div>
 
 
   <div class="collapse bg-primary mt-[10%]">
     <input type="checkbox" class="peer" />
-    <div class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+    <div class="     collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
       Enlèvements
     </div>
     <div class=" pt-4 collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">

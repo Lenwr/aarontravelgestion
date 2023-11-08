@@ -20,7 +20,7 @@ const detailId = ref(route.params.id)
 const client = computed(()=>{
   return datas.value.find(detail => detail.id === detailId.value)
 
-})
+
 const today = new Date()
 
 
@@ -51,18 +51,18 @@ const  makePDF = (client) => {
   //informations entreprise
 
   pdf.setFontSize(13)
-  pdf.text('AARON TRAVEL', 20,20 )
-  pdf.text('Addresse : 15 Rue des écoles 95500,', 20,26 )
-  pdf.text('le thillay', 20,32 )
-  pdf.text('Téléphone : 06 03 67 50 62', 20,38 )
-  pdf.text('Mail : aarontravel@outlook.fr ', 20,44 )
+  pdf.text('AARON TRAVEL', 20, 20)
+  pdf.text('Addresse : 15 Rue des écoles 95500,', 20, 26)
+  pdf.text('le thillay', 20, 32)
+  pdf.text('Téléphone : 06 03 67 50 62', 20, 38)
+  pdf.text('Mail : aarontravel@outlook.fr ', 20, 44)
 
   //logo
-  pdf.text('', 150,15 )
+  pdf.text('', 150, 15)
   pdf.addImage(imgData, 'JPEG', 150, 20, 40, 20)
   pdf.setFontSize(15)
-  pdf.setTextColor( 0,0,0)
-  pdf.text('PMS ', 150,47 )
+  pdf.setTextColor(0, 0, 0)
+  pdf.text('PMS ', 150, 47)
 
 
   //informations expéditeur
@@ -70,14 +70,14 @@ const  makePDF = (client) => {
   pdf.setFillColor(50, 205, 50)
   pdf.rect(20, 53, 60, 7, 'F')
   pdf.setFontSize(15)
-  pdf.setTextColor( 255 ,255,255)
-  pdf.text('EXPEDITEUR ', 28,58 )
+  pdf.setTextColor(255, 255, 255)
+  pdf.text('EXPEDITEUR ', 28, 58)
   pdf.setFontSize(12)
-  pdf.setTextColor( 0,0,0)
-  pdf.text( client.expediteur.toUpperCase(), 20,65 )
-  pdf.text('Téléphone : ' +  client.telephoneExpediteur, 20,71 )
-  pdf.text('Nombre de colis : ' + client.nombreDeColis, 20,77 )
-  pdf.text('Type de Fret : ' + client.typeDeFret.toUpperCase(), 20,83 )
+  pdf.setTextColor(0, 0, 0)
+  pdf.text(client.expediteur.toUpperCase(), 20, 65)
+  pdf.text('Téléphone : ' + client.telephoneExpediteur, 20, 71)
+  pdf.text('Nombre de colis : ' + client.nombreDeColis, 20, 77)
+  pdf.text('Type de Fret : ' + client.typeDeFret.toUpperCase(), 20, 83)
 
 
   //information destinataire
@@ -85,14 +85,14 @@ const  makePDF = (client) => {
   pdf.setFillColor(50, 205, 50)
   pdf.rect(135, 53, 60, 7, 'F')
   pdf.setFontSize(15)
-  pdf.setTextColor( 255 ,255,255)
-  pdf.text('DESTINATAIRE ', 140,58 )
+  pdf.setTextColor(255, 255, 255)
+  pdf.text('DESTINATAIRE ', 140, 58)
   pdf.setFontSize(12)
-  pdf.setTextColor( 0,0,0)
-  pdf.text(client.destinataire.toUpperCase(), 135,65 )
-  pdf.text( 'Téléphone : ' + client.telephoneDestinataire, 135,71 )
-  pdf.text('', 135,75 )
-  pdf.text('', 135,80 )
+  pdf.setTextColor(0, 0, 0)
+  pdf.text(client.destinataire.toUpperCase(), 135, 65)
+  pdf.text('Téléphone : ' + client.telephoneDestinataire, 135, 71)
+  pdf.text('', 135, 75)
+  pdf.text('', 135, 80)
 
 
   //tableau
@@ -102,17 +102,17 @@ const  makePDF = (client) => {
   pdf.setDrawColor(0)
   pdf.setFillColor(192, 192, 192)
   pdf.rect(20, 85, 178, 8, 'FD')
-  pdf.text('Qté  ', 22,90 )
-  pdf.text("", 24,98 )
-  pdf.text('Description', 35,90 )
+  pdf.text('Qté  ', 22, 90)
+  pdf.text("", 24, 98)
+  pdf.text('Description', 35, 90)
   let splitDescription = pdf.splitTextToSize(client.description, 110)
   pdf.setFontSize(12)
-  pdf.text(splitDescription, 35,98 )
-  pdf.text('', 35,104 )
+  pdf.text(splitDescription, 35, 98)
+  pdf.text('', 35, 104)
   pdf.text('P.U.  ', 154, 90)
   pdf.text('  ', 154, 98)
   pdf.text('TOTAL  ', 180, 90)
-  pdf.text( client.prix + ' €', 180, 98)
+  pdf.text(client.prix + ' €', 180, 98)
   pdf.setLineWidth(0.5)
   pdf.line(20, 85, 20, 280)
   pdf.line(30, 85, 30, 250)
@@ -124,18 +124,18 @@ const  makePDF = (client) => {
   pdf.setDrawColor(0)
   pdf.setFillColor(192, 192, 192)
   pdf.rect(150, 242, 20, 8, 'FD')
-  pdf.text('TOTAL  ', 152,247 )
-  pdf.text(client.prix + ' €' , 175,247 )
+  pdf.text('TOTAL  ', 152, 247)
+  pdf.text(client.prix + ' €', 175, 247)
 
   pdf.setFontSize(15)
-  pdf.text('Observations : ' + client.statut, 22,256 )
+  pdf.text('Observations : ' + client.statut, 22, 256)
   pdf.line(20, 250, 198, 250)
 
 
   pdf.save(client.expediteur)
 
 
-}
+}})
 
 
 

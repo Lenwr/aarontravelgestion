@@ -3,6 +3,7 @@ import {getFirestore, collection, addDoc} from 'firebase/firestore';
 import {getStorage, ref as storageRef, uploadBytes, getDownloadURL} from 'firebase/storage';
 import {ref} from "vue";
 import Return from "../components/return.vue";
+import router from "../router/index.js";
 
 export default {
   components: {Return},
@@ -36,6 +37,7 @@ export default {
       try {
         // Obtenez les instances de Firestore et de Storage depuis la configuration Firebase
         const db = getFirestore();
+        const enlevementsCollection = collection(db, 'enlevements');
         const storage = getStorage();
 
         // Téléchargez l'image vers Firebase Storage
@@ -64,8 +66,9 @@ export default {
           date: date.value,
         };
         console.log(Data)
-        alert('Formulaire envoyé avec succès !');
-        window.location.href = '/soumission';
+        const newDocumentRef = await addDoc(enlevementsCollection, Data);
+        console.log('Document ajouté avec ID :', newDocumentRef.id);
+        await router.push({path: '/soumission'})
       } catch (error) {
         console.error('Erreur lors de l\'envoi du formulaire :', error);
       }

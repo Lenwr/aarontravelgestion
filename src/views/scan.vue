@@ -4,6 +4,7 @@ import { StreamBarcodeReader } from "vue-barcode-reader";
 import {useRoute} from "vue-router";
 import {useCollection, useFirestore} from "vuefire";
 import {collection} from "firebase/firestore";
+import router from "../router/index.js";
 const db = useFirestore()
 const datas = useCollection(collection(db, 'enlevements'))
 const decodedText = ref("");
@@ -20,18 +21,17 @@ const onDecode = (text) => {
   })
   Client = client.value ;
   console.log(Client.expediteur);
-  window.location.href = '/liste/' + Client.id
+  router.push({ path: '/liste/' + Client.id })
 };
 
 
 </script>
 
 <template>
-  <StreamBarcodeReader  @decode="onDecode" @loaded="onLoaded"></StreamBarcodeReader>
-  <a class="btn-outline-success" :href="youtube.com" download="codeQR.png">Télécharger le QR Code</a>
+
+
   <div class="full-screen" >
-
-
+    <StreamBarcodeReader  @decode="onDecode" @loaded="onLoaded"></StreamBarcodeReader>
 
 </div>
 </template>
